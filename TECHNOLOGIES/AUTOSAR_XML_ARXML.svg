@@ -1,0 +1,133 @@
+<svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Paper shadow gradient -->
+    <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1d5db;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Paper gradient -->
+    <linearGradient id="paperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f9fafb;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Blue label gradient -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="dropShadow" x="-20%" y="-10%" width="140%" height="120%">
+      <feDropShadow dx="3" dy="6" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Inner shadow for paper -->
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="1"/>
+      <feGaussianBlur stdDeviation="1" result="offset-blur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offset-blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background shadow (positioned document) -->
+  <g transform="translate(8, 8)" opacity="0.2">
+    <path d="M 20 15 L 20 240 L 175 240 L 175 15 Z" fill="#9ca3af"/>
+  </g>
+  
+  <!-- Main document body -->
+  <g filter="url(#dropShadow)">
+    <!-- Paper background -->
+    <path d="M 15 10 L 15 235 L 170 235 L 170 45 L 140 10 Z" 
+          fill="url(#paperGradient)" 
+          stroke="#e5e7eb" 
+          stroke-width="1"/>
+    
+    <!-- Folded corner -->
+    <path d="M 140 10 L 170 45 L 140 45 Z" 
+          fill="url(#shadowGradient)" 
+          stroke="#d1d5db" 
+          stroke-width="1"/>
+    
+    <!-- Folded corner crease -->
+    <line x1="140" y1="10" x2="140" y2="45" 
+          stroke="#d1d5db" 
+          stroke-width="1"/>
+    
+    <!-- Paper inner shadow/border -->
+    <path d="M 15 10 L 15 235 L 170 235 L 170 45 L 140 10 Z" 
+          fill="none" 
+          stroke="#f3f4f6" 
+          stroke-width="0.5" 
+          opacity="0.8"/>
+  </g>
+  
+  <!-- Blue label/banner -->
+  <g>
+    <!-- Main blue rectangle -->
+    <rect x="15" y="160" width="155" height="45" 
+          fill="url(#blueGradient)" 
+          filter="url(#dropShadow)"/>
+    
+    <!-- Blue label highlight -->
+    <rect x="15" y="160" width="155" height="3" 
+          fill="#3b82f6" 
+          opacity="0.6"/>
+    
+    <!-- Blue label shadow/depth -->
+    <rect x="15" y="202" width="155" height="3" 
+          fill="#1e3a8a" 
+          opacity="0.8"/>
+  </g>
+  
+  <!-- Text: .arxml -->
+  <g>
+    <!-- Main text -->
+    <text x="92.5" y="188" 
+          text-anchor="middle" 
+          font-family="Arial, Helvetica, sans-serif" 
+          font-size="22" 
+          font-weight="bold" 
+          fill="#ffffff">.arxml</text>
+    
+    <!-- Text shadow for depth -->
+    <text x="93.5" y="189" 
+          text-anchor="middle" 
+          font-family="Arial, Helvetica, sans-serif" 
+          font-size="22" 
+          font-weight="bold" 
+          fill="#1e3a8a" 
+          opacity="0.5">.arxml</text>
+  </g>
+  
+  <!-- Paper texture lines (subtle) -->
+  <g stroke="#f3f4f6" stroke-width="0.5" opacity="0.6">
+    <line x1="25" y1="60" x2="150" y2="60"/>
+    <line x1="25" y1="75" x2="160" y2="75"/>
+    <line x1="25" y1="90" x2="145" y2="90"/>
+    <line x1="25" y1="105" x2="155" y2="105"/>
+    <line x1="25" y1="120" x2="140" y2="120"/>
+    <line x1="25" y1="135" x2="150" y2="135"/>
+  </g>
+  
+  <!-- Additional depth elements -->
+  <g>
+    <!-- Bottom shadow of document -->
+    <ellipse cx="92.5" cy="245" rx="75" ry="8" 
+             fill="#9ca3af" 
+             opacity="0.3"/>
+    
+    <!-- Corner fold inner shadow -->
+    <path d="M 140 45 L 170 45 L 140 10" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="1" 
+          opacity="0.8"/>
+  </g>
+</svg>
